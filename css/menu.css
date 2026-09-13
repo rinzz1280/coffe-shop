@@ -1,0 +1,417 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+background-color: rgb(11, 11, 11);
+color: white;
+font-family: Arial, sans-serif;
+}
+
+header {
+background-color: rgb(11, 11, 11);
+width: 100%;
+padding: 20px 0;
+border-bottom: 1px solid rgb(41, 36, 29);
+}
+
+.container {
+max-width: 1300px;
+margin: 0 auto;
+padding: 0 40px;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 12px;
+text-decoration: none;
+}
+
+.logo-icon {
+color: rgb(229, 169, 59);
+font-size: 24px;
+}
+
+.logo-text {
+color: white;
+font-size: 24px;
+font-weight: 700;
+}
+
+.logo-text span {
+color: rgb(229, 169, 59);
+}
+
+nav ul {
+display: flex;
+list-style: none;
+gap: 35px;
+}
+
+nav ul li a {
+text-decoration: none;
+color: rgb(123, 109, 91);
+font-size: 15px;
+font-weight: 500;
+transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+color: rgb(229, 169, 59);
+}
+.buttons {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.btn {
+text-decoration: none;
+font-size: 14px;
+font-weight: 500;
+border-radius: 25px;
+transition: 0.3s;
+}
+
+.sign-in {
+color: rgb(123, 109, 91);
+border: 1px solid rgb(54, 48, 39);
+padding: 10px 24px;
+}
+
+.sign-in:hover {
+color: rgb(229, 169, 59);
+border-color: rgb(229, 169, 59);
+}
+
+.order-online {
+color: white;
+background-color: rgb(140, 90, 54);
+padding: 11px 26px;
+}
+
+.order-online:hover {
+background-color: rgb(164, 106, 65);
+}
+
+.menu-section {
+max-width: 1300px;
+margin: auto;
+padding: 70px 40px;
+}
+
+.menu-title {
+text-align: center;
+margin-bottom: 35px;
+}
+
+.small-title {
+color: rgb(229, 169, 59);
+font-size: 14px;
+font-weight: bold;
+letter-spacing: 3px;
+margin-bottom: 10px;
+}
+
+.menu-title h1 {
+font-size: 42px;
+margin-bottom: 12px;
+}
+
+.menu-title h1 span {
+color: rgb(229, 169, 59);
+}
+
+.menu-title p:last-child {
+color: rgb(139, 129, 117);
+font-size: 16px;
+}
+
+.categories {
+display: flex;
+justify-content: center;
+gap: 12px;
+margin-bottom: 40px;
+}
+
+.category {
+background: transparent;
+color: rgb(155, 144, 130);
+border: 1px solid rgb(58, 50, 41);
+padding: 10px 25px;
+border-radius: 25px;
+cursor: pointer;
+font-size: 14px;
+transition: 0.3s;
+}
+
+.category:hover,
+.category.active {
+background-color: rgb(140, 90, 54);
+color: white;
+border-color: rgb(140, 90, 54);
+}
+
+.menu-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 25px;
+}
+
+.coffee-card {
+background-color: rgb(21, 19, 17);
+border: 1px solid rgb(43, 39, 34);
+border-radius: 18px;
+overflow: hidden;
+transition: 0.3s;
+}
+
+.coffee-card:hover {
+transform: translateY(-8px);
+border-color: rgb(229, 169, 59);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.coffee-image {
+height: 230px;
+position: relative;
+overflow: hidden;
+}
+
+.coffee-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: 0.4s;
+}
+
+.coffee-card:hover .coffee-image img {
+transform: scale(1.08);
+}
+
+.popular {
+position: absolute;
+top: 15px;
+left: 15px;
+background-color: rgb(229, 169, 59);
+color: rgb(23, 18, 12);
+padding: 6px 13px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: bold;
+}
+
+.coffee-info {
+padding: 22px;
+}
+
+.coffee-name {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.coffee-name h3 {
+font-size: 20px;
+}
+
+.coffee-name span {
+color: rgb(229, 169, 59);
+font-size: 18px;
+font-weight: bold;
+}
+
+.coffee-info p {
+color: #8d8479;
+font-size: 14px;
+line-height: 1.6;
+margin-bottom: 20px;
+}
+
+.order-btn {
+width: 100%;
+padding: 12px;
+border: none;
+border-radius: 10px;
+background-color: rgb(140, 90, 54);
+color: white;
+font-size: 14px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.order-btn i {
+margin-right: 7px;
+}
+
+.order-btn:hover {
+background-color: rgb(164, 106, 65);
+}
+
+@media (max-width: 900px) {
+.menu-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+nav {
+    display: none;
+}
+
+}
+
+@media (max-width: 600px) {
+.container {
+    padding: 0 20px;
+}
+
+.menu-section {
+    padding: 50px 20px;
+}
+
+.buttons {
+    display: none;
+}
+
+.menu-title h1 {
+    font-size: 30px;
+}
+
+.categories {
+    flex-wrap: wrap;
+}
+
+.menu-container {
+    grid-template-columns: 1fr;
+}
+}
+
+.hero-banner {
+max-width: 1300px;
+min-height: 480px;
+margin: 35px auto 0;
+padding: 80px 70px;
+display: flex;
+align-items: center;
+border-radius: 25px;
+background:
+    linear-gradient(
+        90deg,
+        rgba(10, 8, 6, 0.95) 0%,
+        rgba(10, 8, 6, 0.75) 45%,
+        rgba(10, 8, 6, 0.25) 100%
+    ),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"); 
+
+background-size: cover;
+background-position: center;
+overflow: hidden;
+
+}
+
+.hero-content {
+max-width: 650px;
+}
+
+.hero-small {
+color: rgb(229, 169, 59);
+font-size: 14px;
+font-weight: bold;
+letter-spacing: 4px;
+margin-bottom: 15px;
+}
+
+.hero-content h1 {
+color: white;
+font-size: 58px;
+line-height: 1.1;
+margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+color: rgb(229, 169, 59);
+}
+
+.hero-description {
+max-width: 550px;
+color: #c0b6a8;
+font-size: 16px;
+line-height: 1.8;
+margin-bottom: 30px;
+}
+
+.hero-btn,
+.hero-btn-outline {
+display: inline-flex;
+align-items: center;
+gap: 9px;
+padding: 13px 25px;
+border-radius: 25px;
+text-decoration: none;
+font-size: 14px;
+font-weight: bold;
+transition: 0.3s;
+
+}
+
+.hero-btn {
+background-color: rgb(140, 90, 54);
+color: white;
+}
+
+.hero-btn:hover {
+background-color: rgb(164, 106, 65);
+transform: translateY(-3px);
+}
+
+.hero-btn-outline {
+color: white;
+border: 1px solid #695b4b;
+}
+
+.hero-btn-outline:hover {
+color: rgb(229, 169, 59);
+border-color: rgb(229, 169, 59);
+}
+
+@media (max-width: 900px) {
+.hero-banner {
+    margin: 25px 20px 0;
+    padding: 60px 40px;
+    min-height: 420px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+}
+
+}
+
+@media (max-width: 600px) {
+
+.hero-banner {
+    min-height: 500px;
+    padding: 50px 25px;
+    margin: 20px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+}
+
+.hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+}
+}

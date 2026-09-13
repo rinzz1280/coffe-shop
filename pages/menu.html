@@ -1,17 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Coffee Shop</title>
+    <title>Coffee Shop - Menu</title>
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+<link rel="stylesheet" href="../css/menu.css">
 </head>
 
-<body class="bg-stone-50 text-gray-800">
+<body>
 
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="container header-container">
+
+            <a href="#" class="logo">
+
+                <i class="fa-solid fa-mug-hot logo-icon"></i>
+
+                <div class="logo-text">
+                    Brew <span>Haven</span>
+                </div>
+
+            </a>
+
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="active">Menu</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Locations</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="buttons">
+
+                <a href="#" class="btn sign-in">
+                    Sign In
+                </a>
+
+                <a href="checkout.html" class="btn order-online">
+                    Order Online
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero-banner">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                WELCOME TO BREW HAVEN
+            </p>
+
+            <h1>
+                Your Perfect Cup of
+                <span>Coffee</span>
+            </h1>
+
+            <p class="hero-description">
+                Freshly roasted beans, delicious flavors,
+                and a cozy place to enjoy every moment.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+
+    <main class="menu-section">
+
+        <div class="menu-title">
+
+            <p class="small-title">
+                OUR MENU
+            </p>
+
+            <h1>
+                Fresh Coffee,
+                <span>Made With Love</span>
+            </h1>
+
+            <p>
+                Discover our delicious selection of coffee,
+                tea and sweet treats.
+            </p>
+
+        </div>
+
+
+        <!-- Categories -->
+
+        <div class="categories">
+
+            <button class="category active">
+                All
+            </button>
+
+            <button class="category">
+                Coffee
+            </button>
+
+            <button class="category">
+                Tea
+            </button>
+
+            <button class="category">
+                Dessert
+            </button>
+
+        </div>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <div class="menu-container">
+
+
+            <!-- Espresso -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+                        alt="Espresso">
+
+                    <span class="popular">
+                        Popular
+                    </span>
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Espresso
+                        </h3>
+
+                        <span>
+                            $3.50
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Rich and bold espresso with a smooth crema
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Espresso', 3.50)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Cappuccino -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534778101976-62847782c213"
+                        alt="Cappuccino">
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Cappuccino
+                        </h3>
+
+                        <span>
+                            $4.50
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Creamy espresso topped with silky milk foam
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Cappuccino', 4.50)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Latte -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1572442388796-11668a67e53d"
+                        alt="Latte">
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Caffe Latte
+                        </h3>
+
+                        <span>
+                            $4.75
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Smooth espresso blended with steamed fresh milk.
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Caffe Latte', 4.75)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Americano -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd"
+                        alt="Americano">
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Americano
+                        </h3>
+
+                        <span>
+                            $3.75
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Espresso combined with hot water for a clean taste.
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Americano', 3.75)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Chocolate Cake -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d"
+                        alt="Chocolate Cake">
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Chocolate Cake
+                        </h3>
+
+                        <span>
+                            $5.50
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Soft chocolate cake with rich chocolate cream.
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Chocolate Cake', 5.50)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Donut -->
+
+            <div class="coffee-card">
+
+                <div class="coffee-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307"
+                        alt="Donut">
+
+                </div>
+
+
+                <div class="coffee-info">
+
+                    <div class="coffee-name">
+
+                        <h3>
+                            Sweet Donut
+                        </h3>
+
+                        <span>
+                            $3.25
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Freshly baked donut with a delicious sweet topping.
+                    </p>
+
+
+                    <button
+                        class="order-btn"
+                        onclick="addToCart('Sweet Donut', 3.25)">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Order Now
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <section class="pt-10">
+
+        <footer class="bg-gray-900 text-white rounded-2xl w-11/12 mx-auto mt-16 p-10">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+
+                <div>
+
+                    <h2 class="text-3xl font-bold mb-4">
+                        Brew
+                        <span class="text-blue-500">
+                            Haven
+                        </span>
+                    </h2>
+
+
+                    <div class="flex gap-4 text-xl">
+
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-blue-600 transition">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-pink-500 transition">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-gray-700 transition">
+
+                            <i class="fa-brands fa-x-twitter"></i>
+
+                        </a>
+
+
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white flex items-center justify-center hover:bg-red-600 transition">
+
+                            <i class="fa-brands fa-youtube"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-4">
+                        Shop
+                    </h3>
+
+                    <ul class="space-y-3 text-gray-400">
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Category
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Popular
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                New Arrivals
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Deals
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-4">
+                        Customer Service
+                    </h3>
+
+                    <ul class="space-y-3 text-gray-400">
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Contact Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Shipping
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Returns
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-4">
+                        Account
+                    </h3>
+
+                    <ul class="space-y-3 text-gray-400">
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Login
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Register
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                My Orders
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="hover:text-white transition">
+                                Wishlist
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <hr class="border-gray-700 my-8">
+
+
+            <p class="text-center text-gray-500">
+                Coffee Brew Haven
+            </p>
+
+        </footer>
+
+    </section>
+
+
+    <script src="../js/menu.js"></script>
 
 </body>
 </html>
