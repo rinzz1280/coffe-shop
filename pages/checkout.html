@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Brew Haven - Checkout</title>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+    <link rel="stylesheet"
+        href="../css/checkout.css">
+
+</head>
+
+
+<body class="bg-gray-100">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="bg-black text-white p-5">
+
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+
+
+            <h1 class="text-2xl font-bold">
+
+                <i class="fa-solid fa-mug-hot"></i>
+
+                Brew
+                <span class="text-yellow-500">
+                    Haven
+                </span>
+
+            </h1>
+
+
+            <a href="menu.html"
+                class="text-white hover:text-yellow-400">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Menu
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= CHECKOUT ================= -->
+
+    <main class="max-w-6xl mx-auto px-5 py-12">
+
+
+        <h1 class="text-4xl font-bold text-center mb-10">
+
+            Checkout
+
+        </h1>
+
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+
+            <!-- ORDER -->
+
+            <div class="bg-white shadow-lg rounded-2xl p-8">
+
+
+                <h2 class="text-2xl font-bold mb-6">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Your Order
+
+                </h2>
+
+
+                <!-- Products appear here -->
+
+                <div id="cartItems"></div>
+
+
+                <hr class="my-6">
+
+
+                <div class="flex justify-between text-xl font-bold">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="total">
+                        $0.00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CUSTOMER INFORMATION -->
+
+            <div class="bg-white shadow-lg rounded-2xl p-8">
+
+
+                <h2 class="text-2xl font-bold mb-6">
+
+                    Customer Information
+
+                </h2>
+
+
+                <form id="checkoutForm">
+
+
+                    <!-- Name -->
+
+                    <label class="block mb-2 font-semibold">
+                        Full Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        class="w-full border p-3 rounded-lg mb-5"
+                        required
+                    >
+
+
+
+                    <!-- Phone -->
+
+                    <label class="block mb-2 font-semibold">
+                        Phone Number
+                    </label>
+
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        class="w-full border p-3 rounded-lg mb-5"
+                        required
+                    >
+
+
+
+                    <!-- Address -->
+
+                    <label class="block mb-2 font-semibold">
+                        Address
+                    </label>
+
+
+                    <textarea
+                        id="address"
+                        placeholder="Enter your address"
+                        class="w-full border p-3 rounded-lg mb-5"
+                        required
+                    ></textarea>
+
+
+
+                    <!-- Payment -->
+
+                    <label class="block mb-2 font-semibold">
+                        Payment Method
+                    </label>
+
+
+                    <select
+                        id="payment"
+                        class="w-full border p-3 rounded-lg mb-6"
+                        required
+                    >
+
+                        <option value="">
+                            Select Payment
+                        </option>
+
+                        <option value="Cash">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="ABA">
+                            ABA Pay
+                        </option>
+
+                        <option value="Wing">
+                            Wing
+                        </option>
+
+                    </select>
+
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="w-full bg-black text-white py-4 rounded-lg text-lg font-bold hover:bg-yellow-600 transition"
+                    >
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Place Order
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="../js/checkout.js"></script>
+
+</body>
+
+</html>
