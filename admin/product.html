@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - Admin</title>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            ☕ Coffee Admin
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="products.html" class="active">
+                ☕ Products
+            </a>
+
+            <a href="orders.html">
+                🛒 Orders
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="logout">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>Products</h1>
+                <p>Manage your coffee products</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Product Section -->
+        <section class="orders">
+
+            <div class="section-header">
+
+                <h2>All Products</h2>
+
+                <button class="add-btn">
+                    + Add Product
+                </button>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    placeholder="Search product..."
+                >
+
+            </div>
+
+
+            <!-- Product Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>1</td>
+
+                            <td>
+                                ☕ Americano
+                            </td>
+
+                            <td>
+                                $2.50
+                            </td>
+
+                            <td>
+                                20
+                            </td>
+
+                            <td>
+                                <span class="status complete">
+                                    Available
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="delete-btn">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>2</td>
+
+                            <td>
+                                ☕ Cappuccino
+                            </td>
+
+                            <td>
+                                $3.00
+                            </td>
+
+                            <td>
+                                15
+                            </td>
+
+                            <td>
+                                <span class="status complete">
+                                    Available
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="delete-btn">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>3</td>
+
+                            <td>
+                                ☕ Latte
+                            </td>
+
+                            <td>
+                                $3.50
+                            </td>
+
+                            <td>
+                                8
+                            </td>
+
+                            <td>
+                                <span class="status pending">
+                                    Low Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="delete-btn">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>4</td>
+
+                            <td>
+                                ☕ Mocha
+                            </td>
+
+                            <td>
+                                $4.00
+                            </td>
+
+                            <td>
+                                0
+                            </td>
+
+                            <td>
+                                <span class="status out">
+                                    Out of Stock
+                                </span>
+                            </td>
+
+                            <td>
+
+                                <button class="edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="delete-btn">
+                                    Delete
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+

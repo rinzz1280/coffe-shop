@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders - Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            ☕ Coffee Admin
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="products.html">
+                ☕ Products
+            </a>
+
+            <a href="orders.html" class="active">
+                🛒 Orders
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button class="logout">
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>Orders</h1>
+                <p>Manage customer orders</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Orders -->
+        <section class="orders">
+
+            <div class="section-header">
+
+                <h2>All Orders</h2>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    placeholder="Search order..."
+                >
+
+            </div>
+
+
+            <!-- Order Table -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>#1001</td>
+
+                            <td>Dara</td>
+
+                            <td>Latte</td>
+
+                            <td>2</td>
+
+                            <td>$7.00</td>
+
+                            <td>
+                                <span class="status complete">
+                                    Complete
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>#1002</td>
+
+                            <td>Sokha</td>
+
+                            <td>Cappuccino</td>
+
+                            <td>1</td>
+
+                            <td>$3.00</td>
+
+                            <td>
+                                <span class="status pending">
+                                    Pending
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>#1003</td>
+
+                            <td>Vanna</td>
+
+                            <td>Americano</td>
+
+                            <td>3</td>
+
+                            <td>$7.50</td>
+
+                            <td>
+                                <span class="status complete">
+                                    Complete
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>#1004</td>
+
+                            <td>Rina</td>
+
+                            <td>Mocha</td>
+
+                            <td>1</td>
+
+                            <td>$4.00</td>
+
+                            <td>
+                                <span class="status pending">
+                                    Pending
+                                </span>
+                            </td>
+
+                            <td>
+                                <button class="view-btn">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+

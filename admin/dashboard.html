@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            Coffee Admin
+        </div>
+
+        <nav>
+            <a href="dashboard.html" class="active">
+            Dashboard
+            </a>
+
+            <a href="products.html">
+            Products
+            </a>
+
+            <a href="orders.html">
+            Orders
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="logout">
+                Logout
+            </button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back, Admin 👋</p>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="card">
+                <div class="card-icon">☕</div>
+
+                <div>
+                    <p>Total Products</p>
+                    <h2>25</h2>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">👥</div>
+
+                <div>
+                    <p>Total Customers</p>
+                    <h2>120</h2>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">🛒</div>
+
+                <div>
+                    <p>Total Orders</p>
+                    <h2>342</h2>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">💰</div>
+
+                <div>
+                    <p>Total Revenue</p>
+                    <h2>$2,450</h2>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Recent Orders -->
+        <section class="orders">
+
+            <div class="section-header">
+                <h2>Recent Orders</h2>
+
+                <a href="orders.html">
+                    View All
+                </a>
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td>001</td>
+                            <td>Dara</td>
+                            <td>Latte</td>
+                            <td>$3.50</td>
+                            <td>
+                                <span class="status complete">
+                                    Complete
+                                </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>002</td>
+                            <td>Sokha</td>
+                            <td>Cappuccino</td>
+                            <td>$3.00</td>
+                            <td>
+                                <span class="status pending">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>003</td>
+                            <td>Vanna</td>
+                            <td>Americano</td>
+                            <td>$2.50</td>
+                            <td>
+                                <span class="status complete">
+                                    Complete
+                                </span>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>004</td>
+                            <td>Rina</td>
+                            <td>Mocha</td>
+                            <td>$4.00</td>
+                            <td>
+                                <span class="status pending">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
