@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders - Coffee Admin</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/orders.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="w-64 bg-gray-900 text-white p-5 flex flex-col">
+
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold mb-10">
+            ☕ Coffee Admin
+        </h1>
+
+
+        <!-- Navigation -->
+        <nav class="space-y-2">
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="product.html" >
+                <i class="fa-solid fa-mug-hot"></i>
+                Products
+            </a>
+
+            <a href="categories.html" >
+                <i class="fa-solid fa-layer-group"></i>
+                Categories
+            </a>
+
+            <a href="inventory.html" >
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Inventory
+            </a>
+
+            <a href="customer.html" >
+                <i class="fa-solid fa-users"></i>
+                Customer
+            </a>
+
+            <a href="orders.html" class="active" >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Orders
+            </a>
+            <a href="payments.html" >
+                <i class="fa-solid fa-wallet"></i>
+                Payments
+            </a>
+
+            <a href="staffs.html" >
+                <i class="fa-solid fa-clipboard-user"></i>
+                Staffs
+            </a>
+
+            <a href="orders.html" >
+                <i class="fa-solid fa-chart-simple"></i>
+                Reports
+            </a>
+            
+            <a href="orders.html" >
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <!-- Logout -->
+            <button onclick="logout()"
+                class="w-full mt-auto bg-red-600 p-3 rounded-lg hover:bg-red-700">
+
+            <i class="fa-solid fa-right-from-bracket mr-2"></i>
+
+            Logout
+
+        </button>
+</aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="page-header">
+
+            <div>
+                <h2>Orders</h2>
+
+                <p>
+                    Manage customer orders
+                </p>
+            </div>
+
+
+            <!-- Admin Profile -->
+
+            <div class="profile">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="profile-info">
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             ORDERS
+        ========================== -->
+
+        <section class="orders-card">
+
+            
+
+            <div class="orders-header ">
+
+                <div>
+                    <!-- <h3>All Orders</h3> -->
+                    <p>
+                        View and manage all customer orders
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="order-summary" >
+
+            <div class="summary-card">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <div>
+                    <p>Total Orders</p>
+                    <h3 id="totalOrders">0</h3>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                    <p>Pending</p>
+                    <h3 id="pendingOrders">0</h3>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <p>Complete</p>
+                    <h3 id="completeOrders">0</h3>
+                </div>
+            </div>
+
+        </div>
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+            type="text"
+            id="searchOrder"
+            placeholder="Search order or customer..."
+            oninput="searchOrder()"
+            >
+
+            </div>
+
+
+            <!-- Table -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="orderTable">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/order.js">
+    function logout() {
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href = "../auth/login.html";
+
+}
+</script>
+
+</body>
+</html>

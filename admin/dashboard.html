@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+    <!-- ================= SIDEBAR ================= -->
+<aside class="w-64 bg-gray-900 text-white p-5 flex flex-col">
+
+        <!-- Logo -->
+        <h1 class="text-2xl font-bold mb-10">
+            ☕ Coffee Admin
+        </h1>
+
+
+        <!-- Navigation -->
+        <nav class="space-y-2">
+
+            <a href="dashboard.html"  class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="product.html" >
+                <i class="fa-solid fa-mug-hot"></i>
+                Products
+            </a>
+
+            <a href="categories.html" >
+                <i class="fa-solid fa-layer-group"></i>
+                Categories
+            </a>
+
+            <a href="inventory.html" >
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Inventory
+            </a>
+
+            <a href="customer.html" >
+                <i class="fa-solid fa-users"></i>
+                Customer
+            </a>
+
+            <a href="orders.html" >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Orders
+            </a>
+            <a href="payments.html" >
+                <i class="fa-solid fa-wallet"></i>
+                Payments
+            </a>
+
+            <a href="staffs.html" >
+                <i class="fa-solid fa-clipboard-user"></i>
+                Staffs
+            </a>
+
+            <a href="orders.html" >
+                <i class="fa-solid fa-chart-simple"></i>
+                Reports
+            </a>
+            
+            <a href="orders.html" >
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <!-- Logout -->
+            <button onclick="logout()"
+                class="w-full mt-auto bg-red-600 p-3 rounded-lg hover:bg-red-700">
+
+            <i class="fa-solid fa-right-from-bracket mr-2"></i>
+
+            Logout
+
+        </button>
+</aside>
+    <!-- ================= MAIN ================= -->
+
+    <main class="flex-1 p-8">
+
+
+        <!-- Header -->
+
+        <div class="flex justify-between items-center mb-8">
+
+            <div>
+
+                <h2 class="text-3xl font-bold text-gray-800">
+                    Dashboard
+                </h2>
+
+                <p class="text-gray-500 mt-1">
+                    Welcome back, Admin 👋
+                </p>
+
+            </div>
+
+
+            <!-- Admin Profile -->
+
+            <div class="flex items-center gap-3">
+
+                <div class="w-10 h-10 bg-amber-700 text-white
+                            rounded-full flex items-center justify-center
+                            font-bold">
+                    A
+                </div>
+
+                <div>
+
+                    <p class="font-semibold text-gray-800">
+                        Admin
+                    </p>
+
+                    <p class="text-xs text-gray-500">
+                        Administrator
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CARDS ================= -->
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+            <!-- Products -->
+
+            <div class="bg-white p-6 rounded-xl shadow
+                        hover:shadow-lg transition">
+
+                <div class="flex justify-between items-center">
+
+                    <div>
+
+                        <p class="text-gray-500">
+                            Products
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2">
+                            25
+                        </h3>
+
+                    </div>
+
+                    <div class="w-12 h-12 bg-amber-100
+                                text-amber-700 rounded-lg
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-mug-hot text-xl"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Customers -->
+
+            <div class="bg-white p-6 rounded-xl shadow
+                        hover:shadow-lg transition">
+
+                <div class="flex justify-between items-center">
+
+                    <div>
+
+                        <p class="text-gray-500">
+                            Customers
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2">
+                            18
+                        </h3>
+
+                    </div>
+
+                    <div class="w-12 h-12 bg-blue-100
+                                text-blue-600 rounded-lg
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-users text-xl"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Orders -->
+
+            <div class="bg-white p-6 rounded-xl shadow
+                        hover:shadow-lg transition">
+
+                <div class="flex justify-between items-center">
+
+                    <div>
+
+                        <p class="text-gray-500">
+                            Orders
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2">
+                            42
+                        </h3>
+
+                    </div>
+
+                    <div class="w-12 h-12 bg-green-100
+                                text-green-600 rounded-lg
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-cart-shopping text-xl"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Revenue -->
+
+            <div class="bg-white p-6 rounded-xl shadow
+                        hover:shadow-lg transition">
+
+                <div class="flex justify-between items-center">
+
+                    <div>
+
+                        <p class="text-gray-500">
+                            Revenue
+                        </p>
+
+                        <h3 class="text-3xl font-bold mt-2">
+                            $320
+                        </h3>
+
+                    </div>
+
+                    <div class="w-12 h-12 bg-purple-100
+                                text-purple-600 rounded-lg
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-dollar-sign text-xl"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= RECENT ORDERS ================= -->
+
+        <div class="bg-white rounded-xl shadow mt-8 p-6">
+
+            <div class="flex justify-between items-center mb-5">
+
+                <h3 class="text-xl font-bold">
+                    Recent Orders
+                </h3>
+
+                <a href="orders.html"
+                   class="text-amber-700 hover:text-amber-900 text-sm font-semibold">
+                    View All
+                </a>
+
+            </div>
+
+
+            <div class="overflow-x-auto">
+
+                <table class="w-full text-left">
+
+                    <thead>
+
+                        <tr class="border-b text-gray-500">
+
+                            <th class="p-4">
+                                Customer
+                            </th>
+
+                            <th class="p-4">
+                                Product
+                            </th>
+
+                            <th class="p-4">
+                                Price
+                            </th>
+
+                            <th class="p-4">
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <!-- Order 1 -->
+
+                        <tr class="border-b hover:bg-gray-50">
+
+                            <td class="p-4">
+                                Dara
+                            </td>
+
+                            <td class="p-4">
+                                ☕ Latte
+                            </td>
+
+                            <td class="p-4">
+                                $3.50
+                            </td>
+
+                            <td class="p-4">
+
+                                <span class="bg-green-100 text-green-700
+                                             px-3 py-1 rounded-full text-sm">
+                                    Complete
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+                        <!-- Order 2 -->
+
+                        <tr class="hover:bg-gray-50">
+
+                            <td class="p-4">
+                                Sokha
+                            </td>
+
+                            <td class="p-4">
+                                ☕ Cappuccino
+                            </td>
+
+                            <td class="p-4">
+                                $3.00
+                            </td>
+
+                            <td class="p-4">
+
+                                <span class="bg-yellow-100 text-yellow-700
+                                             px-3 py-1 rounded-full text-sm">
+                                    Pending
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- Admin JS -->
+<script src="../js/admin.js"></script>
+
+
+<script>
+
+function logout() {
+
+    localStorage.removeItem("loggedInUser");
+
+    window.location.href = "../auth/login.html";
+
+}
+
+</script>
+
+</body>
+</html>
+

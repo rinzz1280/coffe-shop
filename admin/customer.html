@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Coffee Shop - Home</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Customer CSS -->
+    <link rel="stylesheet" href="../css/customer.css">
+</head>
+
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <!-- Logo -->
+
+    <div class="logo">
+        ☕ Coffee Shop
+    </div>
+
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <a href="index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="menu.html">
+            <i class="fa-solid fa-mug-hot"></i>
+            Menu
+        </a>
+
+        <a href="orders.html">
+            <i class="fa-solid fa-box"></i>
+            My Orders
+        </a>
+
+    </nav>
+
+
+    <!-- Right -->
+
+    <div class="nav-right">
+
+        <!-- Cart -->
+
+        <a href="cart.html" class="cart">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </a>
+
+
+        <!-- Profile -->
+
+        <div class="profile">
+
+            <div class="avatar">
+                U
+            </div>
+
+            <div>
+
+                <strong>
+                    Customer
+                </strong>
+
+                <small>
+                    Welcome
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            WELCOME TO OUR COFFEE SHOP ☕
+        </p>
+
+        <h1>
+            Start Your Day With
+            <span>Perfect Coffee</span>
+        </h1>
+
+        <p>
+            Fresh coffee, delicious drinks and
+            a relaxing place for everyone.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a href="menu.html"
+               class="btn-primary">
+
+                <i class="fa-solid fa-mug-hot"></i>
+
+                Order Now
+
+            </a>
+
+
+            <a href="#popular"
+               class="btn-secondary">
+
+                View Menu
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <div class="coffee-circle">
+
+            ☕
+            
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            Browse Categories
+        </h2>
+
+        <p>
+            Choose your favorite drink
+        </p>
+
+    </div>
+
+
+    <div class="categories">
+
+
+        <!-- Coffee -->
+
+        <a href="menu.html?category=coffee"
+           class="category-card">
+
+            <div class="category-icon">
+                ☕
+            </div>
+
+            <h3>
+                Coffee
+            </h3>
+
+            <p>
+                Fresh coffee
+            </p>
+
+        </a>
+
+
+        <!-- Tea -->
+
+        <a href="menu.html?category=tea"
+           class="category-card">
+
+            <div class="category-icon">
+                🍵
+            </div>
+
+            <h3>
+                Tea
+            </h3>
+
+            <p>
+                Fresh tea
+            </p>
+
+        </a>
+
+
+        <!-- Smoothie -->
+
+        <a href="menu.html?category=smoothie"
+           class="category-card">
+
+            <div class="category-icon">
+                🥤
+            </div>
+
+            <h3>
+                Smoothie
+            </h3>
+
+            <p>
+                Fresh smoothie
+            </p>
+
+        </a>
+
+
+        <!-- Bakery -->
+
+        <a href="menu.html?category=bakery"
+           class="category-card">
+
+            <div class="category-icon">
+                🥐
+            </div>
+
+            <h3>
+                Bakery
+            </h3>
+
+            <p>
+                Fresh bakery
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     POPULAR PRODUCTS
+========================= -->
+
+<section class="section" id="popular">
+
+    <div class="section-title">
+
+        <h2>
+            Popular Coffee
+        </h2>
+
+        <p>
+            Our customers' favorite drinks
+        </p>
+
+    </div>
+
+
+    <div class="products">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ☕
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Coffee
+                </span>
+
+                <h3>
+                    Americano
+                </h3>
+
+                <p>
+                    Strong and delicious coffee.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <strong>
+                        $2.50
+                    </strong>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Americano', 2.50)">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ☕
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Coffee
+                </span>
+
+                <h3>
+                    Cappuccino
+                </h3>
+
+                <p>
+                    Smooth coffee with milk foam.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <strong>
+                        $3.00
+                    </strong>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Cappuccino', 3.00)">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ☕
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Coffee
+                </span>
+
+                <h3>
+                    Latte
+                </h3>
+
+                <p>
+                    Creamy coffee with fresh milk.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <strong>
+                        $3.50
+                    </strong>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Latte', 3.50)">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card">
+
+            <div class="product-image">
+                ☕
+            </div>
+
+            <div class="product-info">
+
+                <span class="product-category">
+                    Coffee
+                </span>
+
+                <h3>
+                    Mocha
+                </h3>
+
+                <p>
+                    Coffee with chocolate flavor.
+                </p>
+
+
+                <div class="product-bottom">
+
+                    <strong>
+                        $4.00
+                    </strong>
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart('Mocha', 4.00)">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROMOTION
+========================= -->
+
+<section class="promotion">
+
+    <div>
+
+        <p>
+            SPECIAL OFFER
+        </p>
+
+        <h2>
+            Get 20% Off Your First Order
+        </h2>
+
+        <span>
+            Enjoy your favorite coffee with us.
+        </span>
+
+    </div>
+
+
+    <a href="menu.html"
+       class="btn-primary">
+
+        Order Now
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        ☕ Coffee Shop
+    </div>
+
+    <p>
+        Fresh coffee. Good mood. Great day.
+    </p>
+
+    <div class="footer-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="menu.html">
+            Menu
+        </a>
+
+        <a href="orders.html">
+            My Orders
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Coffee Shop. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="../js/customer.js"></script>
+
+</body>
+
+</html>
+
