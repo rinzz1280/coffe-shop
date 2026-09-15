@@ -1,24 +1,41 @@
+
+// ================= CART =================
+
+let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+
+// ================= ORDER PRODUCT =================
+
 function addToCart(name, price) {
 
-    // Get old cart
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // Check Login
+    if (!checkLogin()) {
+        return;
+    }
 
+    // Check product already exists
+    const existingProduct = cart.find(
+        item => item.name === name
+    );
 
-    // Create product
-    let item = {
+    if (existingProduct) {
 
-        name: name,
+        // Increase quantity
+        existingProduct.qty++;
 
-        price: price,
+    } else {
 
-        qty: 1
+        // Add new product
+        cart.push({
 
-    };
+            name: name,
 
+            price: price,
 
-    // Add product to cart
-    cart.push(item);
-
+            qty: 1
+        });
+    }
 
     // Save cart
     localStorage.setItem(
@@ -26,7 +43,9 @@ function addToCart(name, price) {
         JSON.stringify(cart)
     );
 
+    alert(name + " added to cart!");
 
-    // Go to checkout
-    window.location.href = "checkout.html";
+    // Go to cart
+    window.location.href = "cart.html";
 }
+

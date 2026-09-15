@@ -1,0 +1,123 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Brew Haven - Cart</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+
+<body class="bg-gray-100">
+
+
+    <!-- Header -->
+
+    <header class="bg-black text-white p-5">
+
+        <div class="max-w-6xl mx-auto flex justify-between">
+
+            <h1 class="text-2xl font-bold">
+                ☕ Brew Haven
+            </h1>
+
+            <nav>
+
+                <a href="menu.html" class="mx-3">
+                    Home
+                </a>
+
+                <a href="about.html" class="mx-3">
+                    About
+                </a>
+
+                <a href="menu.html#menu" class="mx-3">
+                    Menu
+                </a>
+
+                <a href="cart.html"
+                    class="mx-3 text-yellow-400">
+                    Cart
+                </a>
+
+                <a href="contact.html" class="mx-3">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- Cart -->
+
+    <main class="max-w-5xl mx-auto p-6">
+
+        <h2 class="text-4xl font-bold text-center mb-8">
+            Your Cart
+        </h2>
+
+
+        <div id="cartItems"
+            class="bg-white rounded-xl shadow p-6">
+        </div>
+
+
+        <!-- Total -->
+
+        <div class="bg-white rounded-xl shadow p-6 mt-5 flex justify-between">
+
+            <h3 class="text-2xl font-bold">
+                Total
+            </h3>
+
+            <h3 id="total"
+                class="text-2xl font-bold text-yellow-600">
+                $0.00
+            </h3>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div class="flex justify-between mt-6">
+
+            <a href="menu.html#menu"
+                class="bg-gray-700 text-white px-6 py-3 rounded-lg">
+
+                Continue Shopping
+
+            </a>
+
+
+            <button onclick="goCheckout()"
+                class="bg-yellow-600 text-white px-6 py-3 rounded-lg">
+
+                Checkout →
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/cart.js"></script>
+
+</body>
+</html>
+

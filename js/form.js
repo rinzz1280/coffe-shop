@@ -1,72 +1,133 @@
-let full_name = document.getElementById("full_name")
-let gender = document.getElementById("gender")
-let email = document.getElementById("email")
-let password = document.getElementById("password")
 
-const formRegister = document.getElementById("formRegister")
+// ================= REGISTER =================
 
-const User = JSON.parse(localStorage.getItem("user") || '[]')
+const formRegister = document.getElementById("formRegister");
 
-if(formRegister){
-    formRegister.addEventListener("submit",function(param){
+if (formRegister) {
 
-    param.preventDefault()
-    let user = {
-        full_name : full_name.value,
-        gender :  gender.value,
-        email :  email.value,
-        password:  password.value,
-        role : role.value
-    }
+    formRegister.addEventListener("submit", function (event) {
 
-    User.push(user)
-    
+        event.preventDefault();
 
-    localStorage.setItem("user",JSON.stringify(User))
+        const full_name =
+            document.getElementById("full_name").value.trim();
 
-    alert("User Register successfully")
+        const gender =
+            document.getElementById("gender").value;
 
-    window.location.href = '../pages/login.html'
-})
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        let users =
+            JSON.parse(localStorage.getItem("users")) || [];
+
+        // Check email already exists
+        const existingUser =
+            users.find(user => user.email === email);
+
+        if (existingUser) {
+
+            alert("Email already exists!");
+
+            return;
+        }
+
+        const newUser = {
+
+            full_name: full_name,
+
+            gender: gender,
+
+            email: email,
+
+            password: password
+        };
+
+        users.push(newUser);
+
+        localStorage.setItem(
+            "users",
+            JSON.stringify(users)
+        );
+
+        alert("Register successfully!");
+
+        window.location.href = "login.html";
+    });
 }
 
 
+// ================= LOGIN =================
 
-function login(e){
+function login(event) {
 
-    e.preventDefault();
+    event.preventDefault();
 
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
+    const email =
+        document.getElementById("email").value.trim();
 
-    const User = JSON.parse(localStorage.getItem('user') || '[]')
+    const password =
+        document.getElementById("password").value;
 
-    const user = User.find((user ) => {
-        return user.email == email && user.password == password
-    })
+    const users =
+        JSON.parse(localStorage.getItem("users")) || [];
 
-    if(!user){
-        alert('you dunt have permission')
+    const user = users.find(
+        user =>
+            user.email === email &&
+            user.password === password
+    );
+
+    if (!user) {
+
+        alert("Email or Password is incorrect!");
+
         return;
     }
-    if(user){
-        localStorage.setItem('auth_login',JSON.stringify(user))
-        alert('Login successfully')
-        // window.location.href = '../admin/dashboard.html';
-    }
-//     checkRole(user)
-   }
 
-// function checkRole(role){ //staff , admine
-    
-//     if(role.role=== 'admin'){
-//         window.location.href = '../';
-//         return;
-//     }
-//     if(role.role === 'staff'){
-//         window.location.href = '../staff/index.html';
-//         return;
-//     }
-//     window.location.href = '../index.html';
-//         return;
-// }
+    // Save logged-in user
+    localStorage.setItem(
+        "auth_login",
+        JSON.stringify(user)
+    );
+
+    alert("Login successfully!");
+
+    window.location.href = "../pages/menu.html";
+}
+
+
+// ================= CHECK LOGIN =================
+
+function checkLogin() {
+
+    const auth_login =
+        localStorage.getItem("auth_login");
+
+    if (!auth_login) {
+
+        alert("Please login first!");
+
+        window.location.href = "login.html";
+
+        return false;
+    }
+
+    return true;
+}
+
+
+// ================= LOGOUT =================
+
+function logout() {
+
+    localStorage.removeItem("auth_login");
+
+    alert("Logout successfully!");
+
+    window.location.href = "login.html";
+}
+

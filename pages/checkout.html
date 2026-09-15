@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +11,7 @@
 
     <title>Brew Haven - Checkout</title>
 
-
     <script src="https://cdn.tailwindcss.com"></script>
-
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
-
-
-    <link rel="stylesheet"
-        href="../css/checkout.css">
 
 </head>
 
@@ -27,31 +19,18 @@
 <body class="bg-gray-100">
 
 
-    <!-- ================= HEADER ================= -->
-
     <header class="bg-black text-white p-5">
 
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-
+        <div class="max-w-6xl mx-auto flex justify-between">
 
             <h1 class="text-2xl font-bold">
-
-                <i class="fa-solid fa-mug-hot"></i>
-
-                Brew
-                <span class="text-yellow-500">
-                    Haven
-                </span>
-
+                ☕ Brew Haven
             </h1>
 
+            <a href="cart.html"
+                class="hover:text-yellow-400">
 
-            <a href="menu.html"
-                class="text-white hover:text-yellow-400">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-                Back to Menu
+                ← Back to Cart
 
             </a>
 
@@ -60,148 +39,92 @@
     </header>
 
 
+    <main class="max-w-5xl mx-auto p-6">
 
-    <!-- ================= CHECKOUT ================= -->
-
-    <main class="max-w-6xl mx-auto px-5 py-12">
-
-
-        <h1 class="text-4xl font-bold text-center mb-10">
-
+        <h2 class="text-4xl font-bold text-center mb-8">
             Checkout
-
-        </h1>
-
+        </h2>
 
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="grid md:grid-cols-2 gap-6">
 
 
             <!-- ORDER -->
 
-            <div class="bg-white shadow-lg rounded-2xl p-8">
+            <div class="bg-white rounded-xl shadow p-6">
 
-
-                <h2 class="text-2xl font-bold mb-6">
-
-                    <i class="fa-solid fa-cart-shopping"></i>
-
+                <h3 class="text-2xl font-bold mb-5">
                     Your Order
-
-                </h2>
-
-
-                <!-- Products appear here -->
+                </h3>
 
                 <div id="cartItems"></div>
 
+                <div class="border-t mt-5 pt-5
+                    flex justify-between">
 
-                <hr class="my-6">
-
-
-                <div class="flex justify-between text-xl font-bold">
-
-                    <span>
+                    <strong>
                         Total
-                    </span>
+                    </strong>
 
-                    <span id="total">
+                    <strong id="total"
+                        class="text-yellow-600">
                         $0.00
-                    </span>
+                    </strong>
 
                 </div>
 
             </div>
 
 
+            <!-- CUSTOMER -->
 
-            <!-- CUSTOMER INFORMATION -->
+            <div class="bg-white rounded-xl shadow p-6">
 
-            <div class="bg-white shadow-lg rounded-2xl p-8">
-
-
-                <h2 class="text-2xl font-bold mb-6">
-
+                <h3 class="text-2xl font-bold mb-5">
                     Customer Information
-
-                </h2>
+                </h3>
 
 
                 <form id="checkoutForm">
 
-
-                    <!-- Name -->
-
-                    <label class="block mb-2 font-semibold">
-                        Full Name
-                    </label>
-
-
                     <input
-                        type="text"
                         id="name"
-                        placeholder="Enter your name"
-                        class="w-full border p-3 rounded-lg mb-5"
+                        type="text"
+                        placeholder="Your Name"
                         required
-                    >
-
-
-
-                    <!-- Phone -->
-
-                    <label class="block mb-2 font-semibold">
-                        Phone Number
-                    </label>
+                        class="w-full border p-3 rounded-lg mb-4">
 
 
                     <input
-                        type="tel"
                         id="phone"
-                        placeholder="Enter phone number"
-                        class="w-full border p-3 rounded-lg mb-5"
+                        type="tel"
+                        placeholder="Phone Number"
                         required
-                    >
-
-
-
-                    <!-- Address -->
-
-                    <label class="block mb-2 font-semibold">
-                        Address
-                    </label>
+                        class="w-full border p-3 rounded-lg mb-4">
 
 
                     <textarea
                         id="address"
-                        placeholder="Enter your address"
-                        class="w-full border p-3 rounded-lg mb-5"
+                        placeholder="Address"
                         required
-                    ></textarea>
-
-
-
-                    <!-- Payment -->
-
-                    <label class="block mb-2 font-semibold">
-                        Payment Method
-                    </label>
+                        class="w-full border p-3 rounded-lg mb-4">
+                    </textarea>
 
 
                     <select
                         id="payment"
-                        class="w-full border p-3 rounded-lg mb-6"
                         required
-                    >
+                        class="w-full border p-3 rounded-lg mb-5">
 
                         <option value="">
                             Select Payment
                         </option>
 
-                        <option value="Cash">
+                        <option value="Cash on Delivery">
                             Cash on Delivery
                         </option>
 
-                        <option value="ABA">
+                        <option value="ABA Pay">
                             ABA Pay
                         </option>
 
@@ -212,20 +135,14 @@
                     </select>
 
 
-
-                    <!-- Submit -->
-
                     <button
                         type="submit"
-                        class="w-full bg-black text-white py-4 rounded-lg text-lg font-bold hover:bg-yellow-600 transition"
-                    >
-
-                        <i class="fa-solid fa-check"></i>
+                        class="w-full bg-yellow-600
+                        text-white py-3 rounded-lg">
 
                         Place Order
 
                     </button>
-
 
                 </form>
 
@@ -239,5 +156,5 @@
     <script src="../js/checkout.js"></script>
 
 </body>
-
 </html>
+

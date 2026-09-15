@@ -1,84 +1,127 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/Register.css">
+
+
+<title>Create Account</title>
+
+<link rel="stylesheet" href="../css/Register.css">
+
+
 </head>
+
 <body>
-    <body>
-    <div class="container">
 
-        <div class="title">
-            <h1>Create Account</h1>
-            <p>Register your account to get started</p>
+
+<div class="container">
+
+    <div class="title">
+        <h1>Create Account</h1>
+        <p>Register your account to get started</p>
+    </div>
+
+    <form id="formRegister">
+
+        <!-- Full Name -->
+        <div class="form-group">
+
+            <label for="full_name">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="full_name"
+                placeholder="Enter your full name"
+                required
+            >
+
         </div>
 
-        <form id="formRegister">
 
-            <div class="name-row">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input
-                        type="text"
-                        id="first_name"
-                        placeholder="First name"
-                        required
-                    >
-                </div>
+        <!-- Gender -->
+        <div class="form-group">
 
-            </div>
+            <label for="gender">
+                Gender
+            </label>
 
-            <div class="form-group">
-                <label>Gender</label>
-                <select id="gender">
-                    <option value="male">ប្រុស</option>
-                    <option value="female">ស្រី</option>
-                </select>
-            </div>
+            <select id="gender" required>
 
-            <!-- <div class="form-group">
-                <label>Role</label>
-                <select id="role">
-                    <option value="admin">Admin</option>
-                    <option value="staff">Staff</option>
-                    <option value="user">User</option>
-                </select>
-            </div> -->
+                <option value="male">
+                    ប្រុស
+                </option>
 
-            <div class="form-group">
-                <label>Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Example@gmail.com"
-                    required
-                >
-            </div>
+                <option value="female">
+                    ស្រី
+                </option>
 
-            <div class="form-group">
-                <label>Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter password"
-                    required
-                >
-            </div>
+            </select>
 
-            <button type="submit">Register</button>
-
-        </form>
-
-        <div class="login-link">
-            Already have an account?
-            <a href="login.html">Login</a>
         </div>
+
+
+        <!-- Email -->
+        <div class="form-group">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Example@gmail.com"
+                required
+            >
+
+        </div>
+
+
+        <!-- Password -->
+        <div class="form-group">
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+            >
+
+        </div>
+
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+
+    <div class="login-link">
+
+        Already have an account?
+
+        <a href="login.html">
+            Login
+        </a>
 
     </div>
 
-</body>
+</div>
+
+
 <script src="../js/form.js"></script>
+
+
+</body>
+
 </html>
