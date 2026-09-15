@@ -22,7 +22,10 @@
 
         <!-- Logo -->
         <h1 class="text-2xl font-bold mb-10">
-            ☕ Coffee Admin
+             <i class="fa-solid fa-mug-hot logo-icon "></i>
+             <div class="logo-text">
+                <span>Brew Haven</span>
+                </div>
         </h1>
 
 
@@ -158,8 +161,8 @@
                             Products
                         </p>
 
-                        <h3 class="text-3xl font-bold mt-2">
-                            25
+                        <h3 id="totalProducts" class="text-3xl font-bold mt-2">
+                            0
                         </h3>
 
                     </div>
@@ -190,8 +193,8 @@
                             Customers
                         </p>
 
-                        <h3 class="text-3xl font-bold mt-2">
-                            18
+                        <h3 id="totalCustomers" class="text-3xl font-bold mt-2">
+                            0
                         </h3>
 
                     </div>
@@ -222,8 +225,8 @@
                             Orders
                         </p>
 
-                        <h3 class="text-3xl font-bold mt-2">
-                            42
+                        <h3 id="totalOrders" class="text-3xl font-bold mt-2">
+                            0
                         </h3>
 
                     </div>
@@ -254,8 +257,8 @@
                             Revenue
                         </p>
 
-                        <h3 class="text-3xl font-bold mt-2">
-                            $320
+                        <h3 id="totalRevenue" class="text-3xl font-bold mt-2">
+                            $0.00
                         </h3>
 
                     </div>
@@ -322,11 +325,11 @@
                     </thead>
 
 
-                    <tbody>
+                    <tbody id="recentOrders">
 
                         <!-- Order 1 -->
 
-                        <tr class="border-b hover:bg-gray-50">
+                        <!-- <tr class="border-b hover:bg-gray-50">
 
                             <td class="p-4">
                                 Dara
@@ -354,7 +357,7 @@
 
                         <!-- Order 2 -->
 
-                        <tr class="hover:bg-gray-50">
+                        <!-- <tr class="hover:bg-gray-50">
 
                             <td class="p-4">
                                 Sokha
@@ -377,7 +380,7 @@
 
                             </td>
 
-                        </tr>
+                        </tr>  -->
 
                     </tbody>
 

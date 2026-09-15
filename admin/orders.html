@@ -27,8 +27,12 @@
 
         <!-- Logo -->
         <h1 class="text-2xl font-bold mb-10">
-            ☕ Coffee Admin
+             <i class="fa-solid fa-mug-hot logo-icon "></i>
+             <div class="logo-text">
+                <span>Brew Haven</span>
+                </div>
         </h1>
+
 
 
         <!-- Navigation -->
@@ -88,7 +92,7 @@
 
         <!-- Logout -->
             <button onclick="logout()"
-                class="w-full mt-auto bg-red-600 p-3 rounded-lg hover:bg-red-700">
+                class="w-full mt-auto  p-3 rounded-lg hover:bg-red-600">
 
             <i class="fa-solid fa-right-from-bracket mr-2"></i>
 
@@ -147,7 +151,7 @@
 
                 <div>
                     <!-- <h3>All Orders</h3> -->
-                    <p>
+                    <p class="text-center text-bold text-lg">
                         View and manage all customer orders
                     </p>
                 </div>
@@ -185,18 +189,17 @@
 
             <!-- Search -->
 
-            <div class="search-box">
+        <div class="search-box">
 
-                <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
             <input
-            type="text"
-            id="searchOrder"
-            placeholder="Search order or customer..."
-            oninput="searchOrder()"
+                type="text"
+                id="searchOrder"
+                placeholder="Search order by ID..."
             >
 
-            </div>
+        </div>
 
 
             <!-- Table -->
@@ -206,19 +209,17 @@
                 <table>
 
                     <thead>
-
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Customer</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-
-                    </thead>
-
+                            <tr>
+                                <th>No.</th>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
 
                     <tbody id="orderTable">
                     </tbody>
@@ -234,14 +235,19 @@
 </div>
 
 
-<script src="js/order.js">
-    function logout() {
+<script src="../js/order.js">
+</script>
+
+<script>
+
+function logout() {
 
     localStorage.removeItem("loggedInUser");
 
     window.location.href = "../auth/login.html";
 
 }
+
 </script>
 
 </body>

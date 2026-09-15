@@ -79,9 +79,45 @@
                 Sign In
             </a>
 
-            <a href="checkout.html" class="btn order-online">
-                Order Online
-            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="active">Menu</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Locations</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    class="btn sign-in"
+                    onclick="openLogin()">
+                    Sign In
+                </button>
+                <a href="checkout.html" class="btn order-online">
+                    Order Online
+                </a>
+
+            </div>
 
         </div>
 
@@ -169,17 +205,14 @@
 
         </div>
 
-
         <!-- ================= PRODUCTS ================= -->
 
-        <div class="menu-container">
+        <div class="menu-container" id="productContainer">
 
 
             <!-- ================= COFFEE ================= -->
 
-
-            <!-- Espresso -->
-            <div class="coffee-card" data-category="coffee">
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
@@ -222,11 +255,12 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
             <!-- Cappuccino -->
-            <div class="coffee-card" data-category="coffee">
+
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
@@ -265,11 +299,13 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
-            <!-- Caffe Latte -->
-            <div class="coffee-card" data-category="coffee">
+
+            <!-- Latte -->
+
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
@@ -308,11 +344,12 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
             <!-- Americano -->
-            <div class="coffee-card" data-category="coffee">
+
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
@@ -351,7 +388,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
             <!-- ================= TEA ================= -->
@@ -447,13 +484,14 @@
 
 
             <!-- Chocolate Cake -->
-            <div class="coffee-card" data-category="dessert">
+
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
                     <img
-                        src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d"
-                        alt="Chocolate Cake">
+                        src=""
+                        alt="Chocolate Cake">https://images.unsplash.com/photo-1571115177098-24ec42ed204d
 
                 </div>
 
@@ -486,11 +524,13 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
-            <!-- Sweet Donut -->
-            <div class="coffee-card" data-category="dessert">
+
+            <!-- Donut -->
+
+            <!-- <div class="coffee-card">
 
                 <div class="coffee-image">
 
@@ -529,7 +569,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 
         </div>
@@ -749,9 +789,286 @@
 
     </footer>
 
+   <!-- ================= LOGIN MODAL ================= -->
 
-    <script src="../js/form.js"></script>
-    <script src="../js/menu.js"></script>
+<div class="login-modal" id="loginModal">
+
+    <div class="login-box">
+
+        <!-- Close -->
+        <button
+            type="button"
+            class="close-login"
+            onclick="closeLogin()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- Icon -->
+        <div class="login-icon">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+        </div>
+
+
+        <h2>
+            Welcome Back
+        </h2>
+
+
+        <p class="login-subtitle">
+            Sign in to your Brew Haven account
+        </p>
+
+
+        <!-- LOGIN FORM -->
+
+        <form id="menuLoginForm">
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="menuLoginEmail"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="menuLoginPassword"
+                        placeholder="Enter your password"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-submit">
+
+                Sign In
+
+            </button>
+
+        </form>
+
+
+        <!-- REGISTER LINK -->
+
+        <p class="register-text">
+
+            Don't have an account?
+
+            <a
+                href="#"
+                onclick="openRegister(); return false;">
+
+                Register
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= REGISTER MODAL ================= -->
+
+<div class="login-modal" id="registerModal">
+
+    <div class="login-box">
+
+        <!-- Close -->
+
+        <button
+            type="button"
+            class="close-login"
+            onclick="closeRegister()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <!-- Icon -->
+
+        <div class="login-icon">
+
+            <i class="fa-solid fa-user-plus"></i>
+
+        </div>
+
+
+        <h2>
+            Create Account
+        </h2>
+
+
+        <p class="login-subtitle">
+            Create your Brew Haven account
+        </p>
+
+
+        <!-- REGISTER FORM -->
+
+        <form id="menuRegisterForm">
+
+
+            <!-- First Name -->
+
+            <div class="input-group">
+
+                <label>
+                    First Name
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="registerFirstName"
+                        placeholder="First name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Last Name -->
+
+            <div class="input-group">
+
+                <label>
+                    Last Name
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="registerLastName"
+                        placeholder="Last name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <label>
+                    Email
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+                <label>
+                    Password
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create password"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Register Button -->
+
+            <button
+                type="submit"
+                class="login-submit">
+
+                Register
+
+            </button>
+
+        </form>
+
+
+        <!-- BACK TO LOGIN -->
+
+        <p class="register-text">
+
+            Already have an account?
+
+            <a
+                href="#"
+                onclick="backToLogin(); return false;">
+
+                Sign In
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<script src="../js/menu.js"></script>
 
     <script>
         checkLogin();

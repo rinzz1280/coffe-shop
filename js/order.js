@@ -1,445 +1,537 @@
-// ===============================
+
+// =====================================
+// GET ELEMENTS
+// =====================================
+
+const orderTable =
+    document.getElementById("orderTable");
+
+const searchOrder =
+    document.getElementById("searchOrder");
+
+
+// =====================================
 // GET ORDERS FROM LOCAL STORAGE
-// ===============================
+// =====================================
 
-let orders = JSON.parse(
-    localStorage.getItem("orders") || "[]"
-);
+let orders = [];
 
+try {
 
-// ===============================
-// LOAD ORDERS
-// ===============================
+    orders =
+        JSON.parse(
+            localStorage.getItem("orders")
+        ) || [];
 
-function loadOrders() {
+} catch (error) {
 
-    const table = document.getElementById("orderTable");
-
-    if (!table) return;
-
-    table.innerHTML = "";
-
-    // No order
-    if (orders.length === 0) {
-
-        table.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align:center;">
-                    No orders found
-                </td>
-            </tr>
-        `;
-
-        updateSummary();
-
-        return;
-    }
-
-
-    // Show orders
-    orders.forEach(order => {
-
-        table.innerHTML += `
-            <tr>
-
-                <td class="order-id">
-                    #${order.id}
-                </td>
-
-                <td>
-                    ${order.customer}
-                </td>
-
-                <td>
-                    ${order.product}
-                </td>
-
-                <td>
-                    ${order.quantity}
-                </td>
-
-                <td class="price">
-                    $${Number(order.total).toFixed(2)}
-                </td>
-
-                <td>
-                    <span class="status ${getStatusClass(order.status)}">
-                        ${order.status}
-                    </span>
-                </td>
-
-                <td>
-
-                    <button 
-                        class="view-btn"
-                        onclick="viewOrder(${order.id})">
-
-                        <i class="fa-solid fa-eye"></i>
-                        View
-
-                    </button>
-
-                    <button 
-                        class="edit-btn"
-                        onclick="changeStatus(${order.id})">
-
-                        <i class="fa-solid fa-pen"></i>
-
-                    </button>
-
-                    <button 
-                        class="delete-btn"
-                        onclick="deleteOrder(${order.id})">
-
-                        <i class="fa-solid fa-trash"></i>
-
-                    </button>
-
-                </td>
-
-            </tr>
-        `;
-
-    });
-
-    updateSummary();
-}
-
-
-// ===============================
-// STATUS CLASS
-// ===============================
-
-function getStatusClass(status) {
-
-    if (status === "Complete") {
-        return "complete";
-    }
-
-    if (status === "Pending") {
-        return "pending";
-    }
-
-    if (status === "Cancelled") {
-        return "cancelled";
-    }
-
-    return "";
-}
-
-
-// ===============================
-// SEARCH ORDER
-// ===============================
-
-function searchOrder() {
-
-    const input = document.getElementById("searchOrder");
-
-    if (!input) return;
-
-    const keyword = input.value
-        .toLowerCase()
-        .trim();
-
-
-    const result = orders.filter(order => {
-
-        return (
-            order.id.toString().includes(keyword) ||
-
-            order.customer
-                .toLowerCase()
-                .includes(keyword) ||
-
-            order.product
-                .toLowerCase()
-                .includes(keyword) ||
-
-            order.status
-                .toLowerCase()
-                .includes(keyword)
-        );
-
-    });
-
-
-    displayOrders(result);
-}
-
-
-// ===============================
-// DISPLAY SEARCH RESULT
-// ===============================
-
-function displayOrders(data) {
-
-    const table = document.getElementById("orderTable");
-
-    if (!table) return;
-
-    table.innerHTML = "";
-
-
-    if (data.length === 0) {
-
-        table.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align:center;">
-                    No orders found
-                </td>
-            </tr>
-        `;
-
-        return;
-    }
-
-
-    data.forEach(order => {
-
-        table.innerHTML += `
-            <tr>
-
-                <td class="order-id">
-                    #${order.id}
-                </td>
-
-                <td>
-                    ${order.customer}
-                </td>
-
-                <td>
-                    ${order.product}
-                </td>
-
-                <td>
-                    ${order.quantity}
-                </td>
-
-                <td class="price">
-                    $${Number(order.total).toFixed(2)}
-                </td>
-
-                <td>
-                    <span class="status ${getStatusClass(order.status)}">
-                        ${order.status}
-                    </span>
-                </td>
-
-                <td>
-
-                    <button 
-                        class="view-btn"
-                        onclick="viewOrder(${order.id})">
-
-                        <i class="fa-solid fa-eye"></i>
-                        View
-
-                    </button>
-
-                    <button 
-                        class="edit-btn"
-                        onclick="changeStatus(${order.id})">
-
-                        <i class="fa-solid fa-pen"></i>
-
-                    </button>
-
-                    <button 
-                        class="delete-btn"
-                        onclick="deleteOrder(${order.id})">
-
-                        <i class="fa-solid fa-trash"></i>
-
-                    </button>
-
-                </td>
-
-            </tr>
-        `;
-
-    });
-}
-
-
-// ===============================
-// VIEW ORDER
-// ===============================
-
-function viewOrder(id) {
-
-    const order = orders.find(
-        order => order.id === id
+    console.error(
+        "Cannot read orders:",
+        error
     );
 
-    if (!order) {
-
-        alert("Order not found!");
-
-        return;
-    }
-
-
-    alert(`
-Order Details
-
-Order ID: #${order.id}
-Customer: ${order.customer}
-Product: ${order.product}
-Quantity: ${order.quantity}
-Total: $${Number(order.total).toFixed(2)}
-Status: ${order.status}
-    `);
+    orders = [];
 }
 
 
-// ===============================
-// CHANGE STATUS
-// ===============================
+// =====================================
+// SAVE ORDERS
+// =====================================
 
-function changeStatus(id) {
-
-    const order = orders.find(
-        order => order.id === id
-    );
-
-    if (!order) return;
-
-
-    const newStatus = prompt(
-        "Enter status: Pending, Complete, or Cancelled",
-        order.status
-    );
-
-
-    if (!newStatus) return;
-
-
-    const validStatus = [
-        "Pending",
-        "Complete",
-        "Cancelled"
-    ];
-
-
-    if (!validStatus.includes(newStatus)) {
-
-        alert(
-            "Please enter: Pending, Complete, or Cancelled"
-        );
-
-        return;
-    }
-
-
-    order.status = newStatus;
-
+function saveOrders() {
 
     localStorage.setItem(
         "orders",
         JSON.stringify(orders)
     );
-
-
-    loadOrders();
 }
 
 
-// ===============================
+// =====================================
+// GET ORDER STATUS
+// =====================================
+
+function getStatusClass(status) {
+
+    switch (status) {
+
+        case "Pending":
+            return "pending";
+
+        case "Processing":
+            return "processing";
+
+        case "Completed":
+            return "complete";
+
+        case "Cancelled":
+            return "cancelled";
+
+        default:
+            return "pending";
+    }
+}
+
+
+// =====================================
+// DISPLAY ORDERS
+// =====================================
+
+function getOrders() {
+
+    updateOrderSummary();
+
+    if (!orderTable) {
+
+        console.error(
+            "#orderTable not found!"
+        );
+
+        return;
+    }
+
+
+    const search =
+        searchOrder
+        ? searchOrder.value
+            .toLowerCase()
+            .trim()
+        : "";
+
+
+    const filteredOrders =
+        orders.filter(order => {
+
+            const orderId =
+                String(order.id || "")
+                    .toLowerCase();
+
+            const customerName =
+                String(
+                    order.customerName || ""
+                ).toLowerCase();
+
+            const email =
+                String(
+                    order.email || ""
+                ).toLowerCase();
+
+
+            return (
+                orderId.includes(search) ||
+                customerName.includes(search) ||
+                email.includes(search)
+            );
+        });
+
+
+    orderTable.innerHTML = "";
+
+
+    // =====================================
+    // DISPLAY EACH ORDER
+    // =====================================
+
+    filteredOrders.forEach(
+        (order, index) => {
+
+            const status =
+                order.status || "Pending";
+
+
+            const statusClass =
+                getStatusClass(status);
+
+
+            const total =
+                Number(order.total || 0);
+
+
+            orderTable.innerHTML += `
+
+                <tr>
+
+                    <!-- NUMBER -->
+
+                    <td>
+                        ${index + 1}
+                    </td>
+
+
+                    <!-- ORDER ID -->
+
+                    <td>
+                        <strong>
+                            #${order.id}
+                        </strong>
+                    </td>
+
+
+                    <!-- CUSTOMER -->
+
+                    <td>
+
+                        <div class="customer-info">
+
+                            <strong>
+                                ${order.customerName || "Guest"}
+                            </strong>
+
+                            ${
+                                order.email
+                                ? `
+                                    <small>
+                                        ${order.email}
+                                    </small>
+                                  `
+                                : ""
+                            }
+
+                        </div>
+
+                    </td>
+
+
+                    <!-- ITEMS -->
+
+                    <td>
+
+                        ${
+                            order.items
+                            ? order.items.length
+                            : 0
+                        }
+
+                    </td>
+
+
+                    <!-- TOTAL -->
+
+                    <td>
+
+                        $${total.toFixed(2)}
+
+                    </td>
+
+
+                    <!-- DATE -->
+
+                    <td>
+
+                        ${order.date || "-"}
+
+                    </td>
+
+
+                    <!-- STATUS -->
+
+                    <td>
+
+                        <span
+                            class="status ${statusClass}"
+                        >
+                            ${status}
+                        </span>
+
+                    </td>
+
+
+                    <!-- ACTION -->
+
+                    <td>
+
+                        <button
+                            class="view-btn"
+                            onclick="viewOrder('${order.id}')"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                            View
+                        </button>
+
+
+                        <button
+                            class="delete-btn"
+                            onclick="deleteOrder('${order.id}')"
+                        >
+                            <i class="fa-solid fa-trash"></i>
+                            Delete
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            `;
+        }
+    );
+
+
+    // =====================================
+    // NO ORDER
+    // =====================================
+
+    if (filteredOrders.length === 0) {
+
+        orderTable.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="8"
+                    style="
+                        text-align:center;
+                        padding:40px;
+                    "
+                >
+
+                    <i
+                        class="fa-solid fa-receipt"
+                        style="
+                            font-size:35px;
+                            margin-bottom:10px;
+                        "
+                    ></i>
+
+                    <br>
+
+                    No orders found.
+
+                </td>
+
+            </tr>
+
+        `;
+    }
+}
+
+
+// =====================================
+// SEARCH
+// =====================================
+
+if (searchOrder) {
+
+    searchOrder.addEventListener(
+        "input",
+        getOrders
+    );
+}
+
+
+// =====================================
+// VIEW ORDER
+// =====================================
+
+function viewOrder(id) {
+
+    const order =
+        orders.find(
+            item =>
+                String(item.id) ===
+                String(id)
+        );
+
+
+    if (!order) {
+
+        alert(
+            "Order not found!"
+        );
+
+        return;
+    }
+
+
+    let itemsText = "";
+
+
+    if (
+        Array.isArray(order.items) &&
+        order.items.length > 0
+    ) {
+
+        order.items.forEach(item => {
+
+            itemsText +=
+                `${item.name} x${item.qty} - $${Number(
+                    item.price
+                ).toFixed(2)}\n`;
+
+        });
+
+    } else {
+
+        itemsText =
+            "No items";
+    }
+
+
+    alert(
+
+        `ORDER #${order.id}
+
+Customer: ${order.customerName || "Guest"}
+
+Email: ${order.email || "-"}
+
+Items:
+${itemsText}
+
+Total: $${Number(
+            order.total || 0
+        ).toFixed(2)}
+
+Status: ${order.status || "Pending"}
+
+Date: ${order.date || "-"}`
+    );
+}
+
+
+// =====================================
+// CHANGE ORDER STATUS
+// =====================================
+
+function updateOrderStatus(
+    id,
+    newStatus
+) {
+
+    const order =
+        orders.find(
+            item =>
+                String(item.id) ===
+                String(id)
+        );
+
+
+    if (!order) return;
+
+
+    order.status =
+        newStatus;
+
+
+    saveOrders();
+
+    getOrders();
+}
+
+
+// =====================================
 // DELETE ORDER
-// ===============================
+// =====================================
 
 function deleteOrder(id) {
 
-    const confirmDelete = confirm(
-        "Are you sure you want to delete this order?"
-    );
+    const order =
+        orders.find(
+            item =>
+                String(item.id) ===
+                String(id)
+        );
+
+
+    if (!order) {
+
+        alert(
+            "Order not found!"
+        );
+
+        return;
+    }
+
+
+    const confirmDelete =
+        confirm(
+            `Delete Order #${order.id}?`
+        );
 
 
     if (!confirmDelete) return;
 
 
-    orders = orders.filter(
-        order => order.id !== id
-    );
-
-
-    localStorage.setItem(
-        "orders",
-        JSON.stringify(orders)
-    );
-
-
-    loadOrders();
-}
-
-
-// ===============================
-// SUMMARY
-// ===============================
-
-function updateSummary() {
-
-    const total = orders.length;
-
-
-    const pending = orders.filter(
-        order => order.status === "Pending"
-    ).length;
-
-
-    const complete = orders.filter(
-        order => order.status === "Complete"
-    ).length;
-
-
-    const totalElement =
-        document.getElementById("totalOrders");
-
-    const pendingElement =
-        document.getElementById("pendingOrders");
-
-    const completeElement =
-        document.getElementById("completeOrders");
-
-
-    if (totalElement) {
-        totalElement.textContent = total;
-    }
-
-
-    if (pendingElement) {
-        pendingElement.textContent = pending;
-    }
-
-
-    if (completeElement) {
-        completeElement.textContent = complete;
-    }
-}
-
-
-// ===============================
-// AUTO UPDATE
-// ===============================
-
-window.addEventListener("storage", function(event) {
-
-    if (event.key === "orders") {
-
-        orders = JSON.parse(
-            event.newValue || "[]"
+    orders =
+        orders.filter(
+            item =>
+                String(item.id) !==
+                String(id)
         );
 
-        loadOrders();
+
+    saveOrders();
+
+    getOrders();
+}
+
+
+// =====================================
+// REFRESH ORDERS
+// =====================================
+
+function refreshOrders() {
+
+    try {
+
+        orders =
+            JSON.parse(
+                localStorage.getItem("orders")
+            ) || [];
+
+    } catch (error) {
+
+        orders = [];
     }
 
-});
+
+    getOrders();
+}
 
 
-// ===============================
-// LOAD WHEN PAGE OPENS
-// ===============================
+// =====================================
+// LOAD ORDERS
+// =====================================
 
-loadOrders();
+// =====================================
+// UPDATE ORDER SUMMARY
+// =====================================
+
+function updateOrderSummary() {
+
+    const totalOrders =
+        document.getElementById("totalOrders");
+
+    const pendingOrders =
+        document.getElementById("pendingOrders");
+
+    const completeOrders =
+        document.getElementById("completeOrders");
+
+    const total =
+        orders.length;
+
+    const pending =
+        orders.filter(
+            order => order.status === "Pending"
+        ).length;
+
+    const completed =
+        orders.filter(
+            order => order.status === "Completed"
+        ).length;
+
+    if (totalOrders) {
+        totalOrders.textContent = total;
+    }
+
+    if (pendingOrders) {
+        pendingOrders.textContent = pending;
+    }
+
+    if (completeOrders) {
+        completeOrders.textContent = completed;
+    }
+}
+
+getOrders();
 

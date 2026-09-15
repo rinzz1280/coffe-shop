@@ -1,4 +1,4 @@
-
+<!-- kaka -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,69 +23,73 @@
 <aside class="w-64 bg-gray-900">
 
         <!-- Logo -->
-        <h1 class="text-2xl font-bold mb-10">
-            ☕ Coffee Admin
+       <h1 class="text-2xl font-bold mb-10">
+             <i class="fa-solid fa-mug-hot logo-icon "></i>
+             <div class="logo-text">
+                <span>Brew Haven</span>
+                </div>
         </h1>
+
 
 
         <!-- Navigation -->
         <nav class="space-y-2">
 
             <a href="dashboard.html"
-               class="flex gap-3 items-center p-3 rounded-lg">
+               class="">
                 <i class="fa-solid fa-chart-line"></i>
                 Dashboard
             </a>
 
             <a href="product.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="active">
                 <i class="fa-solid fa-mug-hot"></i>
                 Products
             </a>
 
             <a href="categories.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-layer-group"></i>
                 Categories
             </a>
 
             <a href="inventory.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-boxes-stacked"></i>
                 Inventory
             </a>
 
             <a href="customer.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-users"></i>
                 Customer
             </a>
 
             <a href="orders.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-cart-shopping"></i>
                 Orders
             </a>
             <a href="payments.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-wallet"></i>
                 Payments
             </a>
 
             <a href="staffs.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+               class="">
                 <i class="fa-solid fa-clipboard-user"></i>
                 Staffs
             </a>
 
-            <a href="orders.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+            <a href="reports.html"
+               class="">
                 <i class="fa-solid fa-chart-simple"></i>
                 Reports
             </a>
             
-            <a href="orders.html"
-               class="flex gap-3 items-center p-3 rounded-lg hover:bg-gray-800">
+            <a href="settings.html"
+               class="">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </a>
@@ -138,8 +142,8 @@
 
                 <h2>All Products</h2>
 
-                <button class="add-btn">
-                    + Add Product
+                <button class="add-btn" onclick="openProductForm()">
+                    + Add Product   
                 </button>
 
             </div>
@@ -148,12 +152,115 @@
             <!-- Search -->
             <div class="search-box">
 
-                <input
-                    type="text"
-                    placeholder="Search product..."
-                >
+            <input 
+                type="text" 
+                id="searchProduct"
+                placeholder="Search product by Name..."
+                oninput="getProduct()">
 
             </div>
+<!-- Product Form -->
+<div class="product-form" id="productForm" style="display: none;">
+
+    <h2 id="formTitle">Add Product</h2>
+
+    <form id="formProduct">
+
+        <input type="hidden" id="productId">
+
+        <div class="form-row">
+
+            <div>
+                <label>Product Name</label>
+                <input
+                    type="text"
+                    id="productName"
+                    placeholder="Example: Americano"
+                    required>
+            </div>
+
+            <div>
+                <label>Category</label>
+
+                <select id="productCategory" required>
+                    <option value="">Select Category</option>
+                    <option value="Coffee">Coffee</option>
+                    <option value="Tea">Tea</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div>
+                <label>Price</label>
+
+                <input
+                    type="number"
+                    id="productPrice"
+                    step="0.01"
+                    placeholder="2.50"
+                    required>
+            </div>
+
+
+            <div>
+                <label>Stock</label>
+
+                <input
+                    type="number"
+                    id="productStock"
+                    placeholder="20"
+                    required>
+            </div>
+
+        </div>
+
+
+        <div>
+            <label>Image URL</label>
+
+            <input
+                type="text"
+                id="productImage"
+                placeholder="https://example.com/image.jpg">
+        </div>
+
+
+        <div>
+            <label>Description</label>
+
+            <textarea
+                id="productDescription"
+                placeholder="Product description..."></textarea>
+        </div>
+
+
+        <div class="form-buttons">
+
+            <button type="submit" class="save-btn">
+                Save Product
+            </button>
+
+            <button
+                type="button"
+                class="cancel-btn"
+                onclick="closeProductForm()">
+
+                Cancel
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
 
 
             <!-- Product Table -->
@@ -174,157 +281,7 @@
 
                     </thead>
 
-
-                    <tbody>
-
-                        <tr>
-
-                            <td>1</td>
-
-                            <td>
-                                ☕ Americano
-                            </td>
-
-                            <td>
-                                $2.50
-                            </td>
-
-                            <td>
-                                20
-                            </td>
-
-                            <td>
-                                <span class="status complete">
-                                    Available
-                                </span>
-                            </td>
-
-                            <td>
-
-                                <button class="edit-btn">
-                                    Edit
-                                </button>
-
-                                <button class="delete-btn">
-                                    Delete
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>2</td>
-
-                            <td>
-                                ☕ Cappuccino
-                            </td>
-
-                            <td>
-                                $3.00
-                            </td>
-
-                            <td>
-                                15
-                            </td>
-
-                            <td>
-                                <span class="status complete">
-                                    Available
-                                </span>
-                            </td>
-
-                            <td>
-
-                                <button class="edit-btn">
-                                    Edit
-                                </button>
-
-                                <button class="delete-btn">
-                                    Delete
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>3</td>
-
-                            <td>
-                                ☕ Latte
-                            </td>
-
-                            <td>
-                                $3.50
-                            </td>
-
-                            <td>
-                                8
-                            </td>
-
-                            <td>
-                                <span class="status pending">
-                                    Low Stock
-                                </span>
-                            </td>
-
-                            <td>
-
-                                <button class="edit-btn">
-                                    Edit
-                                </button>
-
-                                <button class="delete-btn">
-                                    Delete
-                                </button>
-
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>4</td>
-
-                            <td>
-                                ☕ Mocha
-                            </td>
-
-                            <td>
-                                $4.00
-                            </td>
-
-                            <td>
-                                0
-                            </td>
-
-                            <td>
-                                <span class="status out">
-                                    Out of Stock
-                                </span>
-                            </td>
-
-                            <td>
-
-                                <button class="edit-btn">
-                                    Edit
-                                </button>
-
-                                <button class="delete-btn">
-                                    Delete
-                                </button>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
+                        <tbody id="productTable"></tbody>
 
                     </table>
 

@@ -54,6 +54,7 @@ aside h1 {
     color: white;
 
     font-size: 22px;
+    display: flex;
 
     padding: 10px 12px 30px;
 
@@ -127,39 +128,25 @@ aside nav a.active:hover {
    LOGOUT
 ========================= */
 
-.logout-btn {
+aside button {
+    background: #4a342a !important;
 
-    margin-top: auto;
+    color: white !important;
 
     border: none;
 
-    background: #4a342a;
-
-    color: white;
-
-    padding: 13px;
-
     border-radius: 8px;
 
-    cursor: pointer;
+    padding: 12px !important;
 
-    font-size: 14px;
+    cursor: pointer;
 
     transition: 0.3s;
 }
 
-
-.logout-btn i {
-
-    margin-right: 8px;
+aside button:hover {
+    background: #b94a4a !important;
 }
-
-
-.logout-btn:hover {
-
-    background: #641414;
-}
-
 
 /* =========================
    MAIN
@@ -366,7 +353,8 @@ aside nav a.active:hover {
    PRODUCT SUMMARY
 ========================= */
 
-.product-summary {
+
+.order-summary {
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -377,12 +365,10 @@ aside nav a.active:hover {
 }
 
 
-/* =========================
-   SUMMARY CARD
-========================= */
-
 .summary-card {
     background: white;
+
+    border: 1px solid #eee8e3;
 
     padding: 20px;
 
@@ -394,8 +380,44 @@ aside nav a.active:hover {
 
     gap: 15px;
 
-    box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+
+.summary-card i {
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 10px;
+
+    background: #f3e5d8;
+
+    color: #b8794a;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 18px;
+}
+
+
+.summary-card p {
+    color: #8a7d76;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.summary-card h3 {
+    color: #2f211b;
+
+    font-size: 23px;
 }
 
 
