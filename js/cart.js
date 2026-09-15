@@ -1,188 +1,78 @@
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// ================= CART =================
-
-let cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
-
-
-// ================= DISPLAY CART =================
+const cartItems = document.getElementById("cartItems");
+const totalElement = document.getElementById("total");
 
 function displayCart() {
 
-    const cartItems =
-        document.getElementById("cartItems");
-
-    const totalElement =
-        document.getElementById("total");
-
     cartItems.innerHTML = "";
 
-    let total = 0;
-
-
-    // Empty Cart
     if (cart.length === 0) {
 
         cartItems.innerHTML = `
-            <div class="text-center py-10">
-
-                <p class="text-gray-500 text-xl">
-                    Your cart is empty.
-                </p>
-
-                <a href="menu.html"
-                    class="inline-block mt-5
-                    bg-yellow-600 text-white
-                    px-5 py-3 rounded-lg">
-
-                    Go to Menu
-
-                </a>
-
-            </div>
+            <p class="text-center text-gray-500">
+                Your cart is empty.
+            </p>
         `;
 
-        totalElement.innerText = "$0.00";
-
+        totalElement.textContent = "$0.00";
         return;
     }
 
+    let total = 0;
 
-    // Display Products
     cart.forEach(function (item, index) {
 
-        const itemTotal =
-            item.price * item.qty;
+        let itemTotal = item.price * item.qty;
 
         total += itemTotal;
 
-
         cartItems.innerHTML += `
-
-            <div class="border-b py-5
-                flex justify-between
-                items-center gap-5">
+            <div class="flex justify-between items-center border-b py-4">
 
                 <div>
-
                     <h3 class="text-xl font-bold">
                         ${item.name}
                     </h3>
 
                     <p class="text-gray-500">
-                        $${item.price.toFixed(2)}
+                        $${item.price.toFixed(2)} × ${item.qty}
                     </p>
-
                 </div>
 
-
-                <div class="flex items-center gap-3">
-
-                    <button
-                        onclick="decreaseQty(${index})"
-                        class="bg-gray-200
-                        px-3 py-1 rounded">
-
-                        −
-
-                    </button>
-
+                <div class="flex items-center gap-4">
 
                     <span class="font-bold">
-                        ${item.qty}
-                    </span>
-
-
-                    <button
-                        onclick="increaseQty(${index})"
-                        class="bg-gray-200
-                        px-3 py-1 rounded">
-
-                        +
-
-                    </button>
-
-                </div>
-
-
-                <div class="text-right">
-
-                    <p class="font-bold">
                         $${itemTotal.toFixed(2)}
-                    </p>
+                    </span>
 
                     <button
                         onclick="removeItem(${index})"
-                        class="text-red-500 text-sm">
+                        class="bg-red-500 text-white px-3 py-1 rounded">
 
-                        Delete
+                        Remove
 
                     </button>
 
                 </div>
 
             </div>
-
         `;
     });
 
-
-    totalElement.innerText =
-        "$" + total.toFixed(2);
+    totalElement.textContent = "$" + total.toFixed(2);
 }
 
-
-// ================= INCREASE =================
-
-function increaseQty(index) {
-
-    cart[index].qty++;
-
-    saveCart();
-}
-
-
-// ================= DECREASE =================
-
-function decreaseQty(index) {
-
-    if (cart[index].qty > 1) {
-
-        cart[index].qty--;
-
-    } else {
-
-        cart.splice(index, 1);
-    }
-
-    saveCart();
-}
-
-
-// ================= DELETE =================
 
 function removeItem(index) {
 
     cart.splice(index, 1);
 
-    saveCart();
-}
-
-
-// ================= SAVE =================
-
-function saveCart() {
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     displayCart();
 }
 
-
-// ================= CHECKOUT =================
 
 function goCheckout() {
 
@@ -193,12 +83,8 @@ function goCheckout() {
         return;
     }
 
-    window.location.href =
-        "checkout.html";
+    window.location.href = "checkout.html";
 }
 
 
-// ================= START =================
-
 displayCart();
-

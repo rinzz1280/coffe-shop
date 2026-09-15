@@ -1,132 +1,123 @@
 
-// ================= REGISTER =================
+// =====================================
+// REGISTER
+// =====================================
 
-const formRegister = document.getElementById("formRegister");
+const registerForm = document.getElementById("formRegister");
 
-if (formRegister) {
+if (registerForm) {
 
-    formRegister.addEventListener("submit", function (event) {
+    registerForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
-        const full_name =
-            document.getElementById("full_name").value.trim();
+        const fullName = document.getElementById("full_name").value.trim();
+        const gender = document.getElementById("gender").value;
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
-        const gender =
-            document.getElementById("gender").value;
+        let users = JSON.parse(localStorage.getItem("users")) || [];
 
-        const email =
-            document.getElementById("email").value.trim();
+        // Check email
+        const emailExists = users.some(function (user) {
+            return user.email === email;
+        });
 
-        const password =
-            document.getElementById("password").value;
-
-        let users =
-            JSON.parse(localStorage.getItem("users")) || [];
-
-        // Check email already exists
-        const existingUser =
-            users.find(user => user.email === email);
-
-        if (existingUser) {
-
-            alert("Email already exists!");
-
+        if (emailExists) {
+            alert("This email is already registered!");
             return;
         }
 
+        // Create user
         const newUser = {
-
-            full_name: full_name,
-
+            fullName: fullName,
             gender: gender,
-
             email: email,
-
             password: password
         };
 
         users.push(newUser);
 
-        localStorage.setItem(
-            "users",
-            JSON.stringify(users)
-        );
+        localStorage.setItem("users", JSON.stringify(users));
 
-        alert("Register successfully!");
+        alert("Register successful!");
 
+        // Go to login
         window.location.href = "login.html";
     });
 }
 
 
-// ================= LOGIN =================
+
+// =====================================
+// LOGIN
+// =====================================
 
 function login(event) {
 
     event.preventDefault();
 
-    const email =
-        document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-    const password =
-        document.getElementById("password").value;
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const users =
-        JSON.parse(localStorage.getItem("users")) || [];
+    const user = users.find(function (user) {
 
-    const user = users.find(
-        user =>
-            user.email === email &&
-            user.password === password
-    );
+        return user.email === email &&
+               user.password === password;
 
-    if (!user) {
+    });
+
+
+    if (user) {
+
+        // Save logged-in user
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify(user)
+        );
+
+        alert("Login successful!");
+
+        // Login success → Menu
+        window.location.href = "menu.html";
+
+    } else {
 
         alert("Email or Password is incorrect!");
 
-        return;
     }
-
-    // Save logged-in user
-    localStorage.setItem(
-        "auth_login",
-        JSON.stringify(user)
-    );
-
-    alert("Login successfully!");
-
-    window.location.href = "../pages/menu.html";
 }
 
 
-// ================= CHECK LOGIN =================
+
+// =====================================
+// CHECK LOGIN
+// =====================================
 
 function checkLogin() {
 
-    const auth_login =
-        localStorage.getItem("auth_login");
+    const currentUser = localStorage.getItem("currentUser");
 
-    if (!auth_login) {
+    if (!currentUser) {
 
-        alert("Please login first!");
+        alert("Please Login first!");
 
         window.location.href = "login.html";
 
-        return false;
     }
-
-    return true;
 }
 
 
-// ================= LOGOUT =================
+
+// =====================================
+// LOGOUT
+// =====================================
 
 function logout() {
 
-    localStorage.removeItem("auth_login");
-
-    alert("Logout successfully!");
+    localStorage.removeItem("currentUser");
 
     window.location.href = "login.html";
 }
